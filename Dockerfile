@@ -15,7 +15,7 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get update
 
 RUN apt-get install -y --force-yes \
-    php7.1-fpm php7.1-dev php7.1-mysql php7.1-xml \
+    php7.1-fpm php7.1-dev php7.1-mysql php-xml php7.1-xml \
     php-curl php-intl php-pear php-mbstring php7.1-gd php7.1-pgsql
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
@@ -28,10 +28,10 @@ RUN apt install -y python-pip && pip install awscli
 
 RUN pecl install xdebug
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
     apt install -y nodejs && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && apt-get install yarn && \
     yarn global add gulp-cli && \
     yarn global add webpack
