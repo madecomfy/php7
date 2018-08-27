@@ -27,6 +27,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN apt-get install -y python-pip && pip install awscli
 
 RUN pecl install xdebug
+RUN pecl install ast
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
     apt-get install -y nodejs && \
