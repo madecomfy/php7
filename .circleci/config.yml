@@ -18,6 +18,6 @@ jobs:
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker push madecomfyau/php7:7.3
-              docker push madecomfyau/php7:latest
+              docker tag madecomfyau/php7 madecomfyau/php7:7.3
+              docker push madecomfyau/php7
             fi

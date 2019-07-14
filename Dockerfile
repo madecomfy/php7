@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 
 LABEL maintainer "tom@madecomfy.com.au"
 
@@ -7,14 +7,14 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils gcc libsasl2-dev lib32z1-dev libldap2-dev libssl-dev openssl \
-    python-software-properties software-properties-common build-essential \
+    software-properties-common build-essential \
     apt-transport-https git python libglib2.0-dev \
     curl wget git zip unzip libcurl3-openssl-dev
 
 RUN add-apt-repository ppa:ondrej/php -y && \
-    apt-get update
+    apt-get -y --allow --fix-missing update
 
-RUN apt-get install -y --force-yes \
+RUN apt-get install -y --allow \
     php7.3-fpm php7.3-dev php7.3-mysql php7.3-xml \
     php7.3-curl php7.3-intl php-pear php7.3-mbstring php7.3-gd
 
@@ -36,7 +36,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
     yarn global add gulp-cli && \
     yarn global add webpack
 
-RUN apt-get update && apt-get upgrade --force-yes -y
+RUN apt-get update && apt-get upgrade --allow -y
 
 RUN mkdir -p /var/www/html
 
