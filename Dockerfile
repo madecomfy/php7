@@ -26,7 +26,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 
 RUN apt-get install -y python-pip && pip install awscli
 
-RUN pecl install xdebug
+RUN pecl install pcov
 
 RUN apt-get install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
     apt-get install -y npm && \
