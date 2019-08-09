@@ -34,6 +34,9 @@ RUN apt-get install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
     yarn global add gulp-cli && \
     yarn global add webpack
 
+RUN curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
+    && chmod +x /usr/local/bin/cc-test-reporter
+
 RUN apt-get update && apt-get upgrade -y
 
 RUN mkdir -p /var/www/html
