@@ -37,7 +37,7 @@ RUN apt-get install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
 RUN curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
     && chmod +x /usr/local/bin/cc-test-reporter
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y
 
 RUN mkdir -p /var/www/html
 
