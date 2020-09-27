@@ -28,7 +28,7 @@ RUN apt-get install -y python-pip && pip install awscli
 
 RUN pecl install pcov
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | -E bash - && \
     apt-get install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
     apt-get install -y npm && \
     npm install -g yarn
