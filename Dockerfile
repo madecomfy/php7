@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https git python libglib2.0-dev \
     curl wget git zip unzip libcurl3-openssl-dev
 
+RUN apt-get purge php7.*
+
 RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get -y update
 
