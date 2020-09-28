@@ -15,7 +15,7 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get -y update
 
 RUN apt-get install -y \
-    php7.3-fpm php7.3-dev php7.3-mysql php7.3-xml \
+    php7.3-fpm php7.3-dev php7.3-mysql php7.3-xml php7.3-simplexml  \
     php7.3-curl php7.3-intl php-pear php7.3-mbstring php7.3-gd php-pcov
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
