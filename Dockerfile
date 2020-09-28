@@ -17,8 +17,9 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get -y update
 
 RUN apt-get install -y \
-    php7.3-fpm php7.3-dev php7.3-mysql php7.3-xml php7.3-simplexml  \
-    php7.3-curl php7.3-intl php-pear php7.3-mbstring php7.3-gd php-pcov
+    php7.3-fpm php7.3-dev php7.3-mysql php7.3-xml php7.3-simplexml php7.3-cli php7.3-common \
+    php7.3-json php7.3-opcache php7.3-readline  php7.3-curl php7.3-intl php-pear \
+    php7.3-mbstring php7.3-gd php-pcov
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '795f976fe0ebd8b75f26a6dd68f78fd3453ce79f32ecb33e7fd087d39bfeb978342fb73ac986cd4f54edd0dc902601dc') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
