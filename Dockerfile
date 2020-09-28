@@ -6,7 +6,7 @@ LABEL maintainer "tom@madecomfy.com.au"
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    apt-utils gcc libsasl2-dev lib32z1-dev libldap2-dev libssl-dev openssl \
+    apt-utils gcc libsasl2-dev lib32z1-dev libldap2-dev libssl-dev openssl gpg-agent \
     software-properties-common build-essential \
     apt-transport-https git python libglib2.0-dev \
     curl wget git zip unzip libcurl3-openssl-dev
@@ -29,8 +29,7 @@ RUN apt-get install -y python-pip && pip install awscli
 RUN pecl install pcov
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs nodejs-dev node-gyp libssl1.0-dev && \
-    apt-get install -y npm && \
+    apt-get install -y nodejs node-gyp libssl1.0-dev && \
     npm install -g yarn
 
 RUN curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > /usr/local/bin/cc-test-reporter \
