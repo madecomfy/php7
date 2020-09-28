@@ -16,7 +16,7 @@ RUN add-apt-repository ppa:ondrej/php -y && \
 
 RUN apt-get install -y \
     php7.3-fpm php7.3-dev php7.3-mysql php7.3-xml \
-    php7.3-curl php7.3-intl php-pear php7.3-mbstring php7.3-gd
+    php7.3-curl php7.3-intl php-pear php7.3-mbstring php7.3-gd php-pcov
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '795f976fe0ebd8b75f26a6dd68f78fd3453ce79f32ecb33e7fd087d39bfeb978342fb73ac986cd4f54edd0dc902601dc') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
@@ -25,8 +25,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     mv /composer.phar /usr/bin/composer && chmod +x /usr/bin/composer
 
 RUN apt-get install -y python-pip && pip install awscli
-
-RUN pecl install pcov
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs node-gyp libssl1.0-dev && \
